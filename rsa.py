@@ -54,7 +54,7 @@ def findInverse(e, fiN) : #calculando o "d" da chave privada (n,d)
 
 def validateCryptoFile(filePath):
 	myFile = open("utils/validate_input", "w")
-	myFile.write(file)
+	myFile.write(filePath)
 	myFile.close()
 	os.system("python3 utils/validate_rsa.py < utils/validate_input")
 
