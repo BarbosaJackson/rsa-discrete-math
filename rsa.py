@@ -18,6 +18,7 @@ def check_prime(x):
 def read_prime_number(text):
 	number = int(input(text))
 	while(check_prime(number) == False):
+		print("Tente um número primo")
 		number = int(input(text))
 	return number
 
