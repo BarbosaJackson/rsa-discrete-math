@@ -89,8 +89,13 @@ def menu():
 		if(op == 1):
 			p = read_prime_number("p = ")
 			q = read_prime_number("q = ")
-			e = int(input("e = "))
 			N = p * q
+			while(not (N>26)):
+				print("Escolha valores primos para 'p' e 'q' tal que p*q > 26 ")
+				p = read_prime_number("p = ")
+				q = read_prime_number("q = ")
+				N = p * q
+			e = int(input("e = "))
 			fiN = (p - 1) * (q - 1)
 			while(gcd(e, fiN) != 1):
 				print("'e' não é primo em comum com (p-1)(q-1), escolha outro número")
