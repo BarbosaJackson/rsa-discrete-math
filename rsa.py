@@ -1,5 +1,7 @@
 import os
 from utils.validate_rsa import validate
+from os import system, name 
+from time import sleep 
 
 dic = ['A', 'B', 'C', 'D', 'E','F', 'G', 'H','I','J','K','L','M','N','O','P','Q','R','S', 'T','U','V', 'W','X','Y', 'Z',' ']
 
@@ -79,29 +81,58 @@ def findInverse(e, fiN) :
 		d += 1
 	return d
 
+def clear(): 
+
+	# for windows 
+	if name == 'nt': 
+	    _ = system('cls') 
+
+	# for mac and linux(here, os.name is 'posix') 
+	else: 
+	    _ = system('clear') 
+
+def header():
+	  print("|------------------------------------------------------------------------------------------------|")
+	  print("|                                     A l g o r i t i m o                                        |")
+	  print("|                                                                                                |")
+	  print("|                             ********      ********        ***                                  |")
+	  print("|                             **     **     **             ** **                                 |")
+	  print("|                             **     **     **            **   **                                |")
+	  print("|                             ********      ********     *********                               |")
+	  print("|                             **     **           **    **       **                              |")
+	  print("|                             **     **           **   **         **                             |")
+	  print("|                             **     **     ********  **           **                            |")
+	  print("|                                                                                                |")
+	  print("|                     Jackson Barbosa - Letícia Medeiros - Lucas Montenegro                      |") 
+	  print("|------------------------------------------------------------------------------------------------|")
+
 def menu():
 	p = 0
 	q = 0
 	e = 0
 	fiN = 0
 	while(True):
-		op = int(input("[ 1 ] Gerar chave pública\n[ 2 ] Criptografar\n[ 3 ] Descriptografar\n[ 0 ] Sair\n=> "))
-		if(op == 1):
-			p = read_prime_number("p = ")
-			q = read_prime_number("q = ")
-			N = p * q
-			while(not (N>26)):
+		clear()
+		header()
+		op = int(input("[ 1 ] Gerar chave pública\n[ 2 ] Criptografar\n[ 3 ] Descriptografar\n[ 0 ] Sair\n=> ")) # Menu de opções
+		if(op == 1): # opção 1 : Gerar Chave Pública
+			p = read_prime_number("p = ") # solicita 'p' ao usuário e verifica se é primo
+			q = read_prime_number("q = ") # solicita 'q' ao usuário e verifica se é primo
+			N = p * q 
+			while(not (N>26)): # Verifica se N > 26, caso contrário, solicita novos valores para 'p' e 'q'
 				print("Escolha valores primos para 'p' e 'q' tal que p*q > 26 ")
 				p = read_prime_number("p = ")
 				q = read_prime_number("q = ")
 				N = p * q
-			e = int(input("e = "))
-			fiN = (p - 1) * (q - 1)
-			while(gcd(e, fiN) != 1):
-				print("'e' não é primo em comum com (p-1)(q-1), escolha outro número")
+			e = int(input("e = ")) # solicita 'e' ao usuário e verifica se é primo
+			fiN = int((p - 1) * (q - 1)) # Calculando o fi de N
+			while(gcd(e, fiN) != 1): # Verifica se 'e' e 'fiN' são primos entre si
+				print("'e' e",fiN,"não são primos entre si, escolha outro valor para 'e' tal que mdc( e,",fiN,") = 1")
 				e = int(input("e = "))
 			public_key = str(N) + " " + str(e)
 			write_file("public_key.txt", public_key)
+			print("Chave Pública gerada com sucesso")
+			sleep(1.5)
 		elif(op == 2):
 			file_path = input("Digite o nome do arquivo: ")
 			if(validate(dic, file_path)):
@@ -113,10 +144,14 @@ def menu():
 					crypt(file_path, N, e)
 				except FileNotFoundError:
 					print("chave não foi gerada!")
+			print("Arquivo criptografado com sucesso")
+			sleep(1.5)
 		elif(op == 3):
 			file_path = input("Digite o nome do arquivo: ")
 			d = findInverse(e, fiN)
 			decrypt(file_path, N, d)
+			print("Arquivo descriptografado com sucesso")
+			sleep(1.5)
 		elif(op == 0):
 			return 0
 menu()
