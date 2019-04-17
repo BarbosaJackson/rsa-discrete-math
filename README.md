@@ -48,7 +48,7 @@ Para descriptografar digite 3 no menu, será solicitado o nome do arquivo cripto
   
   -  _C_ é o caractere a ser descriptografado em formato de número
    
-  -  _d_ é o inverso de _e_ calculado como     
+  -  _d_ é o inverso de _e_ calculado como:     
   ```sh
   e.d mod fiN = 1
   ```
