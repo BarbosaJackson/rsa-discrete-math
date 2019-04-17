@@ -93,7 +93,7 @@ def clear():
 
 def header():
 	  print("|------------------------------------------------------------------------------------------------|")
-	  print("|                                     A l g o r i t i m o                                        |")
+	  print("|                                     A l g o r i t  m o                                         |")
 	  print("|                                                                                                |")
 	  print("|                             ********      ********        ***                                  |")
 	  print("|                             **     **     **             ** **                                 |")
@@ -155,5 +155,3 @@ def menu():
 		elif(op == 0):
 			return 0
 menu()
-
-# pra executar phyton3 <nome_do_arquivo>.py
