@@ -14,7 +14,10 @@ Depois de instalar o python, execute o comando:
 ```sh
 python3 rsa.py
 ```
+
 Feito isso vai aparecer um menu, primeiramente gere a chave pública (digitando 1).
+
+![Captura%20de%20tela%20de%202019-04-17%2008-35-52.png](Captura%20de%20tela%20de%202019-04-17%2008-35-52.png)
 
 Em seguida você já pode criptografar ou descriptografar qualquer arquivo de texto, para criptografar, escolha 2 e o programa vai usar os valores definidos previamente para criptografar o arquivo, como os caracteres válidos são apenas as letras do alfabeto em __maiúsculo__ e o espaço o programa vai utilizar uma função para deixar o arquivo de entrada válido para executar a criptografia o código da função se encontra na pasta utils denominada validate contida no arquivo validate_rsa) o que ela faz é:
   - garantir que todas as letras vão estar maiúsculas
