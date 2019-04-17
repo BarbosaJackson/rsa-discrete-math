@@ -1,3 +1,12 @@
+# Algoritmo RSA - Matemática Discreta (2018.02)
+Alunos: 
+
+- Jackson Barbosa da Silva (jbs@ic.ufal.br);
+
+- Letícia Melquíades dos Santos Medeiros (lmsm@ic.ufal.br);
+
+- Lucas Montenegro Andrade Assunção (lmaa@ic.ufal.br).
+
 # Como executar
 
 Para executar instale o python 3 na sua máquina caso ainda não o tenha, para tal basta seguir o [tutorial](https://docs.aws.amazon.com/pt_br/cli/latest/userguide/install-linux-python.html).
